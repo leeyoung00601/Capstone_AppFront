@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Capstone_APP"
         tools:targetApi="31">
         <activity
+            android:name="course.SelectJobActivity"
+            android:exported="false" />
+        <activity
+            android:name="course.SelectMajorActivity"
+            android:exported="false" />
+        <activity
             android:name="auth.SignUpActivity"
             android:exported="false" />
         <activity
