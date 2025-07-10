@@ -1,4 +1,4 @@
-hpackage course
+package course
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
