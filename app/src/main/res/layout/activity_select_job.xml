@@ -7,4 +7,50 @@
     android:layout_height="match_parent"
     tools:context="course.SelectJobActivity">
 
+    <TextView
+        android:id="@+id/SMA_SelectArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="희망 진로/ 직무 분야를 \n 선택해주세요!"
+
+        android:gravity="center"
+
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/white"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/SMA_Filter"
+
+        />
+
+    <Button
+        android:id="@+id/SMA_Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="학과를 선택해 주세요!"
+
+        android:textSize="20sp"
+
+        app:layout_constraintTop_toBottomOf="@id/SMA_SelectArea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/SMA_ListView"
+        />
+
+    <ListView
+        android:id="@+id/SMA_ListView"
+
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SMA_Filter"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

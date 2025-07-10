@@ -9,27 +9,50 @@
     tools:context="course.SelectMajorActivity">
 
     <TextView
-        android:id="@+id/SC_SelectArea"
+        android:id="@+id/SJA_SelectArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="학과를 선택해주세요!"
 
         android:gravity="center"
 
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/white"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/SJA_Filter"
+
         />
 
     <Button
-        android:id="@+id/co"
+        android:id="@+id/SJA_Filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="학과를 선택해 주세요!"
 
+        app:layout_constraintTop_toBottomOf="@id/SJA_SelectArea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/SJA_ListView"
         />
+
+    <ListView
+        android:id="@+id/SJA_ListView"
+
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SJA_Filter"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
 
 
 

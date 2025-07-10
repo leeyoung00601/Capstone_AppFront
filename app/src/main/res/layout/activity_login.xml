@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toTopOf="@id/LA_SignUpBtn"
         />
 
-    <Button
+    h<Button
         android:id="@+id/LA_SignUpBtn"
         android:text="회원가입"
         android:layout_width="match_parent"
