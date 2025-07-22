@@ -2,10 +2,12 @@ package network
 
 import model.LoginRequest
 import model.LoginResponse
+import model.SignUpRequest
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface AuthApi {
@@ -15,5 +17,8 @@ interface AuthApi {
         @Path("password") password: String
     ): Response<LoginResponse>
 
-
+    @POST("studentSignUp")
+    suspend fun signUp(
+        @Body request: SignUpRequest
+    ): Response<Map<String, String>>
 }
