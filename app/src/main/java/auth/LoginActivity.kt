@@ -12,12 +12,15 @@ import androidx.annotation.RequiresExtension
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import auth.SignUpActivity
 import com.youngtaek.capstone_app.MainActivity
 import com.youngtaek.capstone_app.R
+import course.DepartmentListActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import model.DepartmentRequest
 import model.LoginRequest
 import network.RetrofitClient
 import retrofit2.HttpException
@@ -49,7 +52,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         signupBtn.setOnClickListener {
-            Toast.makeText(this, "회원가입 화면으로 이동 예정", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }
@@ -68,6 +73,8 @@ class LoginActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val body = response.body()
                         Toast.makeText(this@LoginActivity, "${body?.msg}", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@LoginActivity, DepartmentListActivity::class.java))
+                        finish()
                     } else {
                         Toast.makeText(this@LoginActivity, "로그인 실패: ${response.code()}", Toast.LENGTH_SHORT).show()
                     }

@@ -1,5 +1,7 @@
 package network
 
+
+import model.DepartmentResponse
 import model.LoginRequest
 import model.LoginResponse
 import model.SignUpRequest
@@ -11,14 +13,21 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface AuthApi {
+
     @POST("studentsignin/{id}/{password}")
     suspend fun login(
         @Path("id") id: String,
         @Path("password") password: String
     ): Response<LoginResponse>
 
-    @POST("studentSignUp")
+    @POST("studentsignup")
     suspend fun signUp(
         @Body request: SignUpRequest
     ): Response<Map<String, String>>
+
+    @GET("departmentlist")
+    suspend fun departmentlist(
+        @Body response: DepartmentResponse
+    ): Response<List<DepartmentResponse>>
+
 }

@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="course.SelectJobActivity">
+    tools:context="course.CareerListActivity">
 
     <TextView
-        android:id="@+id/SMA_SelectArea"
+        android:id="@+id/sma_selectarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="희망 진로/ 직무 분야를 \n 선택해주세요!"
+        android:text="희망 진로 / 직무 분야를 \n 선택해주세요!"
 
         android:gravity="center"
 
@@ -23,34 +23,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/SMA_Filter"
+        app:layout_constraintBottom_toBottomOf="@id/sma_spinner"
+        />
 
+    <Spinner
+        android:id="@+id/sma_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="20dp"
+
+        app:layout_constraintTop_toBottomOf="@id/sma_selectarea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/sma_submit"
         />
 
     <Button
-        android:id="@+id/SMA_Filter"
-        android:layout_width="wrap_content"
+        android:id="@+id/sma_submit"
+        android:text="제출하기"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="학과를 선택해 주세요!"
-
-        android:textSize="20sp"
-
-        app:layout_constraintTop_toBottomOf="@id/SMA_SelectArea"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/SMA_ListView"
-        />
-
-    <ListView
-        android:id="@+id/SMA_ListView"
-
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-
+        app:layout_constraintTop_toBottomOf="@id/sma_spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/SMA_Filter"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

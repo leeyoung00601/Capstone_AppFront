@@ -1,6 +1,8 @@
 package auth
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -37,6 +39,17 @@ class SignUpActivity : AppCompatActivity() {
         suaSignUpBtn = findViewById(R.id.sa_sign_up_btn)
 
         suaIdCheakBtn.setOnClickListener {
+            Toast.makeText(this, "이후 구현 에정", Toast.LENGTH_SHORT).show()
+
+            val id = suaIdField.text.toString()
+
+            if(id.length != 10){
+                Toast.makeText(this, "학번은 10자리여야 합니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+        }
+
+        suaSignUpBtn.setOnClickListener {
 
             val id = suaIdField.text.toString()
             val password = suaPasswordField.text.toString()
@@ -47,11 +60,6 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if(id.length != 10){
-                Toast.makeText(this, "학번은 10자리여야 합니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
             val signUpRequest = SignUpRequest(
                 id = id,
                 password = password
@@ -59,28 +67,30 @@ class SignUpActivity : AppCompatActivity() {
 
             CoroutineScope(Dispatchers.IO).launch {
                 try {
+                    Log.d("SIGN_UP", "회원가입 요청 시작")
                     val response = RetrofitClient.authApi.signUp(signUpRequest)
                     val body = response.body()
 
-                    withContext(Dispatchers.IO){
-                        if(response.isSuccessful && body != null){
-                            Toast.makeText(this@SignUpActivity, body["msg"]?: "성공", Toast.LENGTH_SHORT).show()
+                    withContext(Dispatchers.Main) {
+                        Log.d("SIGN_UP", "응답 코드: ${response.code()}")
+                        Log.d("SIGN_UP", "응답 바디: ${body}")
+
+                        if (response.isSuccessful && body != null) {
+                            Toast.makeText(this@SignUpActivity, body["msg"] ?: "성공", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
                             finish()
-                        }else{
+                        } else {
                             Toast.makeText(this@SignUpActivity, "회원가입 실패: ${body?.get("msg")}", Toast.LENGTH_SHORT).show()
                         }
                     }
-                } catch (e: Exception){
-                    withContext(Dispatchers.Main){
+
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Log.e("SIGN_UP", "에러 발생", e)
                         Toast.makeText(this@SignUpActivity, "에러 발생: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
-        }
-
-        suaSignUpBtn.setOnClickListener {
-            // 회원가입 정보 서버로 전송 로직
-
         }
     }
 }
