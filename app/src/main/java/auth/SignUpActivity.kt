@@ -6,10 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.youngtaek.capstone_app.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -68,7 +65,7 @@ class SignUpActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     Log.d("SIGN_UP", "회원가입 요청 시작")
-                    val response = RetrofitClient.authApi.signUp(signUpRequest)
+                    val response = RetrofitClient.api.signUp(signUpRequest)
                     val body = response.body()
 
                     withContext(Dispatchers.Main) {

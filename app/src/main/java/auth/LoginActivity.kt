@@ -1,32 +1,19 @@
 package auth
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.annotation.RequiresExtension
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import auth.SignUpActivity
-import com.youngtaek.capstone_app.MainActivity
 import com.youngtaek.capstone_app.R
 import course.DepartmentListActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import model.DepartmentRequest
-import model.LoginRequest
 import network.RetrofitClient
-import retrofit2.HttpException
-import retrofit2.http.Field
-import retrofit2.http.HTTP
-import model.LoginResponse
 
 class LoginActivity : AppCompatActivity() {
 
@@ -64,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
             try {
                 Log.d("LOGIN_REQ", "요청 시작: $email / $password") // ✅ 요청 직전 로그
 
-                val response = RetrofitClient.authApi.login(email, password)
+                val response = RetrofitClient.api.login(email, password)
 
                 Log.d("LOGIN_RES", "응답 코드: ${response.code()}") // ✅ 응답 코드 확인
                 Log.d("LOGIN_RES", "응답 바디: ${response.body()}") // ✅ 응답 바디 확인

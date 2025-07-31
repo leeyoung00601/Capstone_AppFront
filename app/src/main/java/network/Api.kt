@@ -1,18 +1,17 @@
 package network
 
 
-import model.DepartmentResponse
-import model.LoginRequest
+
+import model.DepartmentRequest
 import model.LoginResponse
 import model.SignUpRequest
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.PUT
 import retrofit2.http.Path
 
-interface AuthApi {
+interface Api {
 
     @POST("studentsignin/{id}/{password}")
     suspend fun login(
@@ -26,8 +25,9 @@ interface AuthApi {
     ): Response<Map<String, String>>
 
     @GET("departmentlist")
-    suspend fun departmentlist(
-        @Body response: DepartmentResponse
-    ): Response<List<DepartmentResponse>>
+    suspend fun departmentlist():
+            Response<List<DepartmentRequest>>
+
+
 
 }
