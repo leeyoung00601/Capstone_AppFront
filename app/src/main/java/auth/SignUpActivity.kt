@@ -20,7 +20,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var suaIdField: EditText
     private lateinit var suaPasswordField: EditText
     private lateinit var suaPasswordCheakField: EditText
-    private lateinit var suaIdCheakBtn: Button
+//    private lateinit var suaIdCheakBtn: Button
     private lateinit var suaSignUpBtn: Button
 
 
@@ -32,19 +32,20 @@ class SignUpActivity : AppCompatActivity() {
         suaIdField = findViewById(R.id.sa_id_area)
         suaPasswordField = findViewById(R.id.sa_pass_word_area)
         suaPasswordCheakField = findViewById(R.id.sa_pass_word_area_cheak)
-        suaIdCheakBtn = findViewById(R.id.sa_check_id_button)
         suaSignUpBtn = findViewById(R.id.sa_sign_up_btn)
+//        suaIdCheakBtn = findViewById(R.id.sa_check_id_button)
 
-        suaIdCheakBtn.setOnClickListener {
-            Toast.makeText(this, "이후 구현 에정", Toast.LENGTH_SHORT).show()
 
-            val id = suaIdField.text.toString()
-
-            if(id.length != 10){
-                Toast.makeText(this, "학번은 10자리여야 합니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-        }
+//        suaIdCheakBtn.setOnClickListener {
+//            Toast.makeText(this, "이후 구현 에정", Toast.LENGTH_SHORT).show()
+//
+//            val id = suaIdField.text.toString()
+//
+//            if(id.length != 10){
+//                Toast.makeText(this, "학번은 10자리여야 합니다.", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
+//        }
 
         suaSignUpBtn.setOnClickListener {
 

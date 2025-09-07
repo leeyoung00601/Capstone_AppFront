@@ -2,105 +2,139 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/sign_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="auth.SignUpActivity">
+    android:background="@android:color/white">
 
+    <!-- 타이틀 -->
     <TextView
         android:id="@+id/sa_sign_up_area"
-        android:text="회원가입"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="100dp"
-
-        android:gravity="center"
-        android:textSize="35sp"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sa_id_area"
-        />
-
-    <EditText
-        android:id="@+id/sa_id_area"
-        android:hint="아이디"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="100dp"
+        android:text="회원가입"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="#3B63F1"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- 아이디 (학번) : 박스형 입력 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        android:hint="아이디 (학번)"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="#F6F8FF"
+        app:boxStrokeColor="#D8DCEB"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
         app:layout_constraintTop_toBottomOf="@id/sa_sign_up_area"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/sa_check_id_button"
-        app:layout_constraintBottom_toTopOf="@id/sa_pass_word_area"/>
-
-    <Button
-        android:id="@+id/sa_check_id_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="중복체크"
-        android:layout_marginEnd="20dp"
-
-        app:layout_constraintTop_toTopOf="@id/sa_id_area"
-        app:layout_constraintBottom_toBottomOf="@id/sa_id_area"
-        app:layout_constraintStart_toEndOf="@id/sa_id_area"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        >
 
-    <EditText
-        android:id="@+id/sa_pass_word_area"
-        android:layout_width="match_parent"
+        <!-- 기존 ID 그대로 유지 -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sa_id_area"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="number"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 비밀번호 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPw"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="비밀번호"
-
-        android:layout_margin="20dp"
-
-        app:layout_constraintBottom_toTopOf="@id/sa_pass_word_area_cheak"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sa_id_area" />
-
-    <EditText
-        android:id="@+id/sa_pass_word_area_cheak"
-        android:hint="비밀번호 확인"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="200dp"
-
-
-        app:layout_constraintTop_toBottomOf="@id/sa_pass_word_area"
+        android:layout_marginTop="25dp"
+        android:hint="비밀번호"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="#F6F8FF"
+        app:boxStrokeColor="#D8DCEB"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tilId"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sa_sign_up_btn"/>
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp">
 
-<!--    버튼 크기와 EditText 가로 길이 같게-->
-    <Button
-        android:id="@+id/sa_sign_up_btn"
-        android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sa_pass_word_area"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 비밀번호 확인 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPwCheck"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="회원가입"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="25dp"
+        android:hint="비밀번호 확인"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="#F6F8FF"
+        app:boxStrokeColor="#D8DCEB"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tilPw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp">
 
-        android:layout_margin="20dp"
+        <!-- 기존 ID 그대로 유지 -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sa_pass_word_area_cheak"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 회원가입 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sa_sign_up_btn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="회원가입"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:backgroundTint="#3B63F1"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/sa_sign_up_btn"
-        />
-
-
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/tilPwCheck"
+        app:layout_constraintVertical_bias="0.325" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
