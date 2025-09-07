@@ -1,6 +1,6 @@
 package model
 
-data class DepartmentRequest(
+data class DepartmentResponse(
     val code: String,
     val name: String
 )

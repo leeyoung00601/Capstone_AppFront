@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- 과목명 -->
+        <TextView
+            android:id="@+id/tvSubjectName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="경영과학"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layoutButtons"
+            app:layout_constraintHorizontal_bias="0" />
+
+        <!-- 교수명 -->
+        <TextView
+            android:id="@+id/tvProfessorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="교수명: 허재석"
+            app:layout_constraintTop_toBottomOf="@id/tvSubjectName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layoutButtons" />
+
+        <!-- 학점 (교수명 아래, 좌측) -->
+        <TextView
+            android:id="@+id/tvCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            tools:text="학점: 3"
+            app:layout_constraintTop_toBottomOf="@id/tvProfessorName"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- 시간 -->
+        <TextView
+            android:id="@+id/tvClassTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="화[6], 목[2-3]"
+            app:layout_constraintTop_toBottomOf="@id/tvCredit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layoutButtons"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- 버튼 영역 (오른쪽 세로 배치) -->
+
+        <LinearLayout
+            android:id="@+id/layoutButtons"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="추가" />
+
+        <Button
+            android:id="@+id/btnDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="6dp"
+            android:text="상세정보" />
+
+    </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

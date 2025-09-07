@@ -1,10 +1,11 @@
 package network
 
 
-
-import model.DepartmentRequest
+import model.career.CareerResponse
+import model.DepartmentResponse
 import model.LoginResponse
 import model.SignUpRequest
+import model.course.CourseResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -26,7 +27,18 @@ interface Api {
 
     @GET("departmentlist")
     suspend fun departmentlist():
-            Response<List<DepartmentRequest>>
+            Response<List<DepartmentResponse>>
+
+    @POST("careerlist/{departmentcd}")
+    suspend fun getCareer(
+        @Path("departmentcd") departmentCode: String
+    ): Response<CareerResponse>
+
+    @POST("careerpathlist/{careercd}")
+    suspend fun getCourseList(
+        @Path("careercd") careerCode: String
+    ): Response<CourseResponse>
+
 
 
 

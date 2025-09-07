@@ -2,14 +2,12 @@ package course
 
 import android.content.Intent
 import android.os.Bundle
-import model.DepartmentRequest
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.youngtaek.capstone_app.R
 import kotlinx.coroutines.CoroutineScope
@@ -83,7 +81,7 @@ class DepartmentListActivity : AppCompatActivity() {
             intent.putExtra("departmentName", selectedDepartmentName)
             startActivity(intent)
 
-            Log.d("DEPARTMENT", "학과데이터 조회  : $selectedDepartmentName($selectedDepartCode)")
+            Log.d("DEPARTMENT", "학과데이터 조회 : $selectedDepartmentName($selectedDepartCode)")
         }
 
 //        val departments = listOf("학과 선택", "IT경영", "경영", "데이터사이언스 경영")
