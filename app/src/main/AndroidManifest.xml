@@ -18,18 +18,22 @@
 
         <activity
             android:name="course.CareerPathListActivity"
-            android:exported="false" />
-        <activity
-            android:name="course.CareerListActivity"
-            android:exported="false" />
-        <activity
-            android:name="course.DepartmentListActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="course.CareerListActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name="course.DepartmentListActivity"
+            android:exported="true" >
+
         </activity>
         <activity
             android:name="auth.SignUpActivity"

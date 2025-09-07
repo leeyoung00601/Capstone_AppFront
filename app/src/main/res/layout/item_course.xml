@@ -1,98 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    android:layout_margin="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="16dp">
+
+        <!-- 번호 뱃지 -->
+        <TextView
+            android:id="@+id/tvIndex"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_index_circle"
+            android:text="1"
+            android:textSize="12sp"
+            android:textColor="#777EA6"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- 과목명 -->
         <TextView
             android:id="@+id/tvSubjectName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:text="경영과학"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            tools:text="경영과학"
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/layoutButtons"
-            app:layout_constraintHorizontal_bias="0" />
+            app:layout_constraintStart_toEndOf="@id/tvIndex"
+            app:layout_constraintEnd_toStartOf="@+id/layoutButtons" />
 
         <!-- 교수명 -->
         <TextView
             android:id="@+id/tvProfessorName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            tools:text="교수명: 허재석"
-            app:layout_constraintTop_toBottomOf="@id/tvSubjectName"
+            android:layout_marginTop="8dp"
+            android:text="교수명 : 허재석 교수님"
+            android:textColor="#444444"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/layoutButtons"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/layoutButtons" />
+            app:layout_constraintTop_toBottomOf="@id/tvSubjectName" />
 
-        <!-- 학점 (교수명 아래, 좌측) -->
+        <!-- 학점 -->
         <TextView
             android:id="@+id/tvCredit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            tools:text="학점: 3"
-            app:layout_constraintTop_toBottomOf="@id/tvProfessorName"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginTop="8dp"
+            android:text="학점 : 3학점"
+            android:textColor="#444444"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfessorName" />
 
         <!-- 시간 -->
         <TextView
             android:id="@+id/tvClassTime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:maxLines="2"
-            android:ellipsize="end"
-            tools:text="화[6], 목[2-3]"
-            app:layout_constraintTop_toBottomOf="@id/tvCredit"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:text="요일(교시) : 화[6], 목[2-3]"
+            android:textColor="#444444"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/layoutButtons"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCredit" />
 
-        <!-- 버튼 영역 (오른쪽 세로 배치) -->
-
+        <!-- 버튼 영역(오른쪽 세로 정렬) -->
         <LinearLayout
             android:id="@+id/layoutButtons"
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginStart="12dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="추가" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="추가"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:backgroundTint="#3B63F1"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/btnDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:layout_marginTop="6dp"
-            android:text="상세정보" />
-
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDetail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:text="상세정보"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textColor="#3B63F1"
+                style="?attr/materialButtonOutlinedStyle"
+                app:cornerRadius="10dp"
+                app:strokeColor="#3B63F1"
+                app:strokeWidth="1dp"/>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.cardview.widget.CardView>

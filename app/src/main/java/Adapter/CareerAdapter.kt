@@ -33,11 +33,13 @@ class CourseAdapter(
     override fun onBindViewHolder(h: VH, position: Int) {
         val item = items[position]
 
+        h.itemView.findViewById<TextView>(R.id.tvIndex).text = (position + 1).toString()
+
         // 🔗 여기서 바인딩
         h.tvSubjectName.text   = item.sname                  // 과목명
-        h.tvProfessorName.text = "교수명: ${item.pname}"      // 교수명
-        h.tvCredit.text        = "학점: ${item.credit}"       // 학점
-        h.tvClassTime.text     = item.classtime              // 시간
+        h.tvProfessorName.text = "교수명: ${item.pname} 교수님"      // 교수명
+        h.tvCredit.text        = "학점: ${item.credit}학점"       // 학점
+        h.tvClassTime.text     = "요일/(교시)${item.classtime}"              // 시간
 
         // 버튼 클릭 콜백
         h.btnAdd.setOnClickListener { onAddClick(item) }
