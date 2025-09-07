@@ -3,90 +3,130 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="auth.LoginActivity"
-    android:background="#ffffff">
+    android:background="@android:color/white">
 
-
+    <!-- 로그인 안내 -->
     <TextView
         android:id="@+id/la_login_guide"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="아이디를 입력해주세여!"
-        android:textSize="30sp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="80dp"
+        android:text="TU- GUIDE"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:textColor="#3B63F1"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/la_login_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        tools:layout_editor_absoluteY="150dp" />
-
+    <!-- 로고 -->
     <ImageView
         android:id="@+id/la_login_image"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="35dp"
         android:src="@drawable/login_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        app:layout_constraintTop_toBottomOf="@id/la_login_guide"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/la_login_area"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/la_login_guide" />
 
-    <EditText
-        android:id="@+id/la_login_area"
-        android:layout_width="match_parent"
+    <!-- 아이디 입력 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLoginId"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:hint="아이디"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="#F6F8FF"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
         app:layout_constraintTop_toBottomOf="@id/la_login_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/la_passs_word_area"
-        />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-        android:id="@+id/la_passs_word_area"
-        android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/la_login_area"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="number"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 비밀번호 입력 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLoginPw"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:hint="비밀번호"
-        android:layout_margin="30dp"
-        app:layout_constraintTop_toBottomOf="@id/la_login_area"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="#F6F8FF"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tilLoginId"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/la_login_btn"/>
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/la_passs_word_area"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 로그인 버튼 -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/la_login_btn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="32dp"
         android:text="로그인"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_margin="20dp"
-
-        app:layout_constraintTop_toBottomOf="@id/la_passs_word_area"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:backgroundTint="#3B63F1"
+        app:cornerRadius="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tilLoginPw"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/la_sign_up_btn"
-        />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
+    <!-- 회원가입 버튼 -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/la_sign_up_btn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="12dp"
         android:text="회원가입"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_margin="20dp"
-
+        android:textColor="#3B63F1"
+        app:backgroundTint="#FFFFFF"
+        app:strokeColor="#3B63F1"
+        app:strokeWidth="2dp"
+        app:cornerRadius="16dp"
         app:layout_constraintTop_toBottomOf="@id/la_login_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
