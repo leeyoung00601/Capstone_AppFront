@@ -47,7 +47,9 @@ class DepartmentListActivity : AppCompatActivity() {
                             this@DepartmentListActivity,
                             android.R.layout.simple_spinner_item,
                             departments.map { it.name }// 학과명만 표시, code는 표시되지 않음
-                        )
+                        ).also {
+                            it.setDropDownViewResource(R.layout.item_spinner_dropdown)
+                        }
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         spinner.adapter = adapter
 
