@@ -48,7 +48,7 @@ class CareerPathListActivity : AppCompatActivity() {
 
         // 선택한 직무명 상단 표시 (레이아웃에 tvSelectedCareer(TextView) 가 있어야 함)
         findViewById<TextView?>(R.id.tvSelectedCareer)?.text =
-            intent.getStringExtra("careerName")?.let { "직무: $it" } ?: "추천 과목"
+            intent.getStringExtra("careerName") ?: "추천 과목"
 
         // 2) 리사이클러뷰 세팅
         recycler = findViewById(R.id.rvCourses)
